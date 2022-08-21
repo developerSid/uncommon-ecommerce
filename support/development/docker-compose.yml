@@ -1,0 +1,39 @@
+version: "3.9"
+networks:
+  ecomnet:
+    name: ecomnet
+services: 
+  ecomdbbase:
+    image: ecomdbbase
+    build:
+      context: ecomdbbase
+      dockerfile: ecomdbbase.dockerfile
+      args:
+        postgresVer: 14.3
+        pgpartmanver: 4.6.2
+        pgcronVer: 1.4.1
+  ecomdb:
+    container_name: ecomdb
+    networks:
+      - ecomnet
+    build:
+      network: host
+      context: ecomdb
+      dockerfile: ecomdb.dockerfile
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+    ports:
+      - "6432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    restart: 'no'
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready --host=ecomdb -U ecomuser -d ecomdb --port=5432" ]
+      interval: 10s
+      timeout: 5s
+      retries: 15

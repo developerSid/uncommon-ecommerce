@@ -1,0 +1,2 @@
+ecomdb:5432:ecomdb:ecomuser:password
+ecomtestdb:5432:ecomtestdb:ecomuser:password
