@@ -13,12 +13,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <Protobuf Include="Protos\Inventory.proto" />
-    <Protobuf Include="Protos\EventStream.proto" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="obj" />
+    <Protobuf Include="Protos\*.proto" GrpcServices="None" />
   </ItemGroup>
 
 </Project>
