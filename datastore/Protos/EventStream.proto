@@ -2,6 +2,11 @@ syntax = "proto3";
 
 option csharp_namespace = "Uncommon.Ecommerce.EventStream";
 
+import "Protos/Inventory.proto";
+import "Protos/Lib.proto";
+
 message EventStream {
-  
+  oneof event {
+    uncommon.ecommerce.eventstream.inventory.CreateProductEvent createInventoryEvent = 1;
+  }
 }

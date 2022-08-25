@@ -9,8 +9,16 @@
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.21.5" />
     <PackageReference Include="Google.Protobuf.Tools" Version="3.21.5" />
+    <PackageReference Include="Grpc.Tools" Version="2.48.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <Protobuf Include="Protos\Inventory.proto" />
     <Protobuf Include="Protos\EventStream.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="obj" />
   </ItemGroup>
 
 </Project>

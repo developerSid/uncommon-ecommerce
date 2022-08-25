@@ -1,3 +1,20 @@
 syntax = "proto3";
 
-message
+package uncommon.ecommerce.eventstream.inventory;
+
+option csharp_namespace = "Uncommon.Ecommerce.EventStream.Inventory";
+
+import "Protos/Lib.proto";
+
+message Product {
+  uncommon.ecommerce.eventstream.lib.UUID id = 1;
+}
+
+// events
+message CreateProductEvent {
+  uncommon.ecommerce.eventstream.inventory.Product product = 1;
+}
+
+message AddProductEvent {
+  
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package uncommon.ecommerce.eventstream.lib;
+
+option csharp_namespace = "Uncommon.Ecommerce.EventStream.Lib";
+
+message UUID {
+  string value = 1;
+}
